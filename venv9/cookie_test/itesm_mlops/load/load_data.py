@@ -22,9 +22,9 @@ class DataRetriever:
     ```
     """
 
-    #DROP_COLS = ['name', 'ticket', 'boat', 'body', 'home.dest']
+    DROP_COLS = ['name', 'ticket', 'boat', 'body', 'home.dest']
     DATASETS_DIR = './data/'  # Directory where data will be saved.
-    RETRIEVED_DATA = 'Acoustic_Extinguisher_Fire_Dataset.xls'  # File name for the retrieved data.
+    RETRIEVED_DATA = 'retrieved_data.csv'  # File name for the retrieved data.
 
     def __init__(self, url):
         self.url = url

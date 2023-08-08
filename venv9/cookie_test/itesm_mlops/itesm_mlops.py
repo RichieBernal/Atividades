@@ -6,9 +6,10 @@ from sklearn.model_selection import train_test_split
 import joblib
 
 DATASETS_DIR = 'datasets/'
-URL = 'https://www.openml.org/data/get_csv/16826755/phpMYEkMl'
-DROP_COLS = ['boat','body','home.dest','ticket','name']
-RETRIEVED_DATA = 'raw-data.csv'
+URL = 'C:\Users\rbernal\Documents\GitHub\Rich\mlops\module-2\session-3\activity\Atividades\venv9\cookie_test\itesm_mlops\data\retrieved_data.csv'
+DROP_COLS = None
+#DROP_COLS = ['boat','body','home.dest','ticket','name']
+RETRIEVED_DATA = 'retrieved_data.csv'
 
 
 SEED_SPLIT = 404
@@ -16,15 +17,15 @@ TRAIN_DATA_FILE = f'{DATASETS_DIR}train.csv'
 TEST_DATA_FILE = f'{DATASETS_DIR}test.csv'
 
 
-TARGET = 'survived'
-FEATURES = ['pclass','sex','age','sibsp','parch','fare','cabin','embarked','title']
-NUMERICAL_VARS = ['pclass','age','sibsp','parch','fare']
-CATEGORICAL_VARS = ['sex','cabin','embarked','title']
-CATEGORICAL_VARS = ['embarked','title']
+TARGET = 'STATUS'
+FEATURES = ['SIZE','FUEL','DISTANCE','DESIBEL','AIRFLOW','FREQUENCY','STATUS']
+NUMERICAL_VARS = ['DISTANCE','DESIBEL','AIRFLOW','FREQUENCY']
+CATEGORICAL_VARS = ['FUEL']
 
 
-NUMERICAL_VARS_WITH_NA = ['age','fare']
-CATEGORICAL_VARS_WITH_NA = ['cabin','embarked']
+
+NUMERICAL_VARS_WITH_NA = None
+CATEGORICAL_VARS_WITH_NA = None
 NUMERICAL_NA_NOT_ALLOWED = [var for var in NUMERICAL_VARS if var not in NUMERICAL_VARS_WITH_NA]
 CATEGORICAL_NA_NOT_ALLOWED = [var for var in CATEGORICAL_VARS if var not in CATEGORICAL_VARS_WITH_NA]
 
@@ -73,6 +74,6 @@ if __name__ == "__main__":
     
     file_path = TRAINED_MODEL_DIR + PIPELINE_SAVE_FILE
     trained_model = joblib.load(filename=file_path)
-    new_data = prueba = '{"pclass":1,"sex":"male","age":58.0,"sibsp":0,"parch":2,"fare":113.275,"cabin":"D48","embarked":"C","title":"Mr"}'
+    new_data = prueba = '{"SIZE":1,"FUEL":"gasoline","DISTANCE":10,"DESIBEL":96,"AIRFLOW":0,"FREQUENCY":75}'
     predictions = trained_model.predict(new_data)
     print(f"The prediction is: {predictions}")

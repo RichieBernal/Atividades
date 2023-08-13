@@ -1,7 +1,7 @@
 import pandas as pd
-#import numpy as np
-#import re
-#import os
+import numpy as np
+import re
+import os
 
 class DataRetriver:
     """
@@ -17,8 +17,7 @@ class DataRetriver:
 
     RETRIEVED_DATA = 'retrieved_data.csv' # File name for the retrieved data.
 
-    def __init__(self, url, data_path):
-        self.url = url
+    def __init__(self, data_path):
         self.DATASETS_DIR = data_path
 
     def retrieve_data(self):
@@ -29,7 +28,7 @@ class DataRetriver:
             str: A message indicating the location of the stored data.
         """    
         # Loading data from specific path
-        data = pd.read_csv(self.url)
+        data = pd.read_csv(self.data_path) 
 
         # Create directory if it does not exist
         if not os.path.exists(self.DATASETS_DIR):

@@ -10,7 +10,7 @@ from google.colab import drive
 drive.mount('/content/drive')
             
 DATASETS_DIR = './data/'
-URL = '/content/drive/MyDrive/VII/Acoustic_Extinguisher_Fire_Dataset.xlsx'
+URL = 'C:\Users\rbernal\Documents\GitHub\Rich\mlops\module-2\session-3\activity\Atividades\venv9\Proyecto\cookie_test\data\retrieved_data.csv'
 RETRIEVED_DATA = 'retrieved_data.csv'
 
 

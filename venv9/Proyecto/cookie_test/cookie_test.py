@@ -10,7 +10,7 @@ from sklearn.metrics import accuracy_score, roc_auc_score
 #drive.mount('/content/drive')
             
 DATASETS_DIR = './data/'
-DATA_PATH = 'venv9/Proyecto/cookie_test/data/retrieved_data.csv'  
+URL = 'venv9/Proyecto/cookie_test/data/retrieved_data.csv'  
 RETRIEVED_DATA = 'retrieved_data.csv'
 
 
@@ -36,7 +36,7 @@ if __name__ == "__main__":
     print(os.getcwd())
     os.chdir('venv9/Proyecto/cookie_test/cookie_test')
     # Retrieve data
-    data_retriever = DataRetriever(DATA_PATH, DATASETS_DIR)
+    data_retriever = DataRetriever(URL, DATASETS_DIR)
     result = data_retriever.retrieve_data()
     print(result)
     

@@ -6,8 +6,8 @@ from sklearn.model_selection import train_test_split
 import joblib
 import os
 from sklearn.metrics import accuracy_score, roc_auc_score
-from google.colab import drive
-drive.mount('/content/drive')
+#from google.colab import drive
+#drive.mount('/content/drive')
             
 DATASETS_DIR = './data/'
 URL = 'C:\Users\rbernal\Documents\GitHub\Rich\mlops\module-2\session-3\activity\Atividades\venv9\Proyecto\cookie_test\data\retrieved_data.csv'
@@ -28,5 +28,5 @@ SEED_MODEL = 404
 SELECTED_FEATURES = ['SIZE','FUEL', 'FUEL_gasoline', 'FUEL_lpg', 'FUEL_kerosene','DISTANCE','DESIBEL','AIRFLOW','FREQUENCY']
 
 TRAINED_MODEL_DIR = './models/'
-PIPELINE_NAME = 'xgboost'
+PIPELINE_NAME = 'logistic_regression'
 PIPELINE_SAVE_FILE = f'{PIPELINE_NAME}_output.pkl'

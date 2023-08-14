@@ -16,6 +16,10 @@ The status property (flame extinction or non-extinction states) can be predicted
 Status and fuel features are categorical, while other features are numerical. 8,759 of the 17,442 test results are the non-extinguishing state of the flame. 8,683 of them are the extinction state of the flame. According to these numbers, it can be said that the class distribution of the dataset is almost equal.
 
 **BASE LINE MODEL**
+The baseline model is a simple and efficient model that can be used to predict the extinguishing status of fuel flames with sound waves. However, the authors of the paper also experimented with other machine learning models, such as random forests, support vector machines, and XGBoost. These models achieved higher accuracies than the baseline model, but they were also more complex and computationally expensive.
+
+The authors of the paper concluded that the baseline logistic regression model is a good choice for predicting the extinguishing status of fuel flames with sound waves. It is simple, efficient, and achieves good accuracy. However, if higher accuracy is required, then more complex models such as random forests, support vector machines, or XGBoost can be used.
+
 Here is a summary of the baseline model from the paper:
 
 Model: Logistic regression
@@ -24,6 +28,11 @@ Accuracy: 92.62%
 Complexity: Simple and efficient
 Advantages: Simple, efficient, and achieves good accuracy
 Disadvantages: May not be as accurate as more complex models
+
+**Objetive**
+The scope of this project is to replicate the baseline model through visual studio code using classes and modules.
+Currently, different types of models have been tested, so neural networks or assembled models could be used to improve, however, the prediction of a logistic regression is sufficient and effective due to the accuracy and necessary computing time.
+
 
 
 

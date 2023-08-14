@@ -11,6 +11,7 @@ Open a command prompt window.
 'pip install -r requirements.txt'
 5.To deactivate the virtual environment, run the following command:
 'deactivate'
+
 **Linux**
 Open a terminal.
 1.Run the following command to install the virtual environment manager:
@@ -23,6 +24,7 @@ Open a terminal.
 p'ip install -r requirements.txt'
 5.To deactivate the virtual environment, run the following command:
 'deactivate'
+
 **Requirements**
 The following packages and versions are the most required for machine learning:
 

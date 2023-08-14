@@ -10,9 +10,10 @@ from sklearn.metrics import accuracy_score, roc_auc_score
 #drive.mount('/content/drive')
             
 DATASETS_DIR = './data/'
-URL = 'venv9/Proyecto/cookie_test/data/retrieved_data.csv'  
-RETRIEVED_DATA = 'retrieved_data.csv'
+URL = 'venv9/Proyecto/cookie_test/data/data_fire.csv'  
+RETRIEVED_DATA = 'data_fire.csv'
 
+#https://github.com/RichieBernal/Atividades/blob/main/venv9/Proyecto/cookie_test/data/retrieved_data.csv
 
 SEED_SPLIT = 404
 TRAIN_DATA_FILE = DATASETS_DIR + 'train.csv'

@@ -8,14 +8,12 @@ from preprocess.preprocess_data import (
     OrderingFeatures
 )
 
-class TitanicDataPipeline:
+class FireDataPipeline:
     """
     A class representing the Titanic data processing and modeling pipeline.
 
     Attributes:
         NUMERICAL_VARS (list): A list of numerical variables in the dataset.
-        CATEGORICAL_VARS_WITH_NA (list): A list of categorical variables with missing values.
-        NUMERICAL_VARS_WITH_NA (list): A list of numerical variables with missing values.
         CATEGORICAL_VARS (list): A list of categorical variables in the dataset.
         SEED_MODEL (int): A seed value for reproducibility.
 

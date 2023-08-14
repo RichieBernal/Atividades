@@ -1,6 +1,6 @@
 """Main module."""
 from load.load_data import Data_Retriever
-from train.train_data import TitanicDataPipeline
+from train.train_data import FireDataPipeline
 import pandas as pd
 from sklearn.model_selection import train_test_split
 import joblib
@@ -41,8 +41,8 @@ if __name__ == "__main__":
     result = data_retriever.retrieve_data()
     print(result)
     
-    # Instantiate the TitanicDataPipeline class
-    titanic_data_pipeline = TitanicDataPipeline(seed_model=SEED_MODEL,
+    # Instantiate the FireDataPipeline class
+    Fire_data_pipeline = FireDataPipeline(seed_model=SEED_MODEL,
                                                 numerical_vars=NUMERICAL_VARS, 
                                                 categorical_vars=CATEGORICAL_VARS,
                                                 selected_features=SELECTED_FEATURES)
@@ -59,9 +59,9 @@ if __name__ == "__main__":
                                                    )
     
     
-    logistic_regression_model = titanic_data_pipeline.fit_logistic_regression(X_train, y_train)
+    logistic_regression_model = Fire_data_pipeline.fit_logistic_regression(X_train, y_train)
     
-    X_test = titanic_data_pipeline.PIPELINE.fit_transform(X_test)
+    X_test = Fire_data_pipeline.PIPELINE.fit_transform(X_test)
     y_pred = logistic_regression_model.predict(X_test)
     
     class_pred = logistic_regression_model.predict(X_test)

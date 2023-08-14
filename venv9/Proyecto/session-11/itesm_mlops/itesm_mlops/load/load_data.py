@@ -16,18 +16,19 @@ class DataRetriever:
     Example usage:
     ```
     URL = 'https://www.openml.org/data/get_csv/16826755/phpMYEkMl'
-    data_retriever = DataRetriever(URL)
+    data_retriever = DataRetriever(URL, DATASETS_DIR)
     result = data_retriever.retrieve_data()
     print(result)
     ```
     """
 
-    DROP_COLS = ['name', 'ticket', 'boat', 'body', 'home.dest']
-    DATASETS_DIR = './data/'  # Directory where data will be saved.
-    RETRIEVED_DATA = 'retrieved_data.csv'  # File name for the retrieved data.
+    DROP_COLS = None #'name', 'ticket', 'boat', 'body', 'home.dest']
+    # DATASETS_DIR = './data/'  # Directory where data will be saved.
+    RETRIEVED_DATA = 'data_fire.csv'  # File name for the retrieved data.
 
-    def __init__(self, url):
+    def __init__(self, url, data_path):
         self.url = url
+        self.DATASETS_DIR = data_path
 
     def _get_first_cabin(self, row):
         """

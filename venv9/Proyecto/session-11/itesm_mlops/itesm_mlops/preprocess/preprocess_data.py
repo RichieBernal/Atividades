@@ -82,7 +82,7 @@ class MissingIndicator(BaseEstimator, TransformerMixin):
             X[f'{var}_nan'] = X[var].isnull().astype(int)
 
         return X
-
+    
 class ExtractLetters(BaseEstimator, TransformerMixin):
     """
     Custom scikit-learn transformer to extract letters from a specified variable.
@@ -287,9 +287,9 @@ class NumericalImputer(BaseEstimator, TransformerMixin):
         Returns:
             self (NumericalImputer): The transformer instance.
         """
-        self.median_dict_ = {}
+        self.median_dict = {}
         for var in self.variables:
-            self.median_dict_[var] = X[var].median()
+            self.median_dict[var] = X[var].median()
         return self
 
 
@@ -305,7 +305,7 @@ class NumericalImputer(BaseEstimator, TransformerMixin):
         """
         X = X.copy()
         for var in self.variables:
-            X[var] = X[var].fillna(self.median_dict_[var])
+            X[var] = X[var].fillna(self.median_dict[var])
         return X
     
 class RareLabelCategoricalEncoder(BaseEstimator, TransformerMixin):
@@ -393,7 +393,7 @@ class RareLabelCategoricalEncoder(BaseEstimator, TransformerMixin):
         for var in self.variables:
             X[var] = np.where(X[var].isin(self.rare_labels_dict[var]), 'rare', X[var])
         return X
-    
+      
 class OneHotEncoder(BaseEstimator, TransformerMixin):
     """
     Custom scikit-learn transformer to perform one-hot encoding for categorical variables.
@@ -475,8 +475,74 @@ class OneHotEncoder(BaseEstimator, TransformerMixin):
                 X[col] = 0
 
         return X
-    
 
+class FeatureSelector(BaseEstimator, TransformerMixin):
+    """
+    Custom scikit-learn transformer to select specific features (columns) from a DataFrame.
+
+    Parameters:
+        feature_names (list or array-like): List of column names to select as features from the input DataFrame.
+
+    Methods:
+        fit(X, y=None):
+            Placeholder method that returns the transformer instance itself.
+
+        transform(X):
+            Selects and returns the specified features (columns) from the input DataFrame.
+
+    Example usage:
+    ```
+    from sklearn.pipeline import Pipeline
+
+    # Define the feature names to be selected
+    selected_features = ['feature1', 'feature2', 'feature3']
+
+    # Instantiate the custom transformer
+    feature_selector = FeatureSelector(feature_names=selected_features)
+
+    # Define the pipeline with the custom transformer
+    pipeline = Pipeline([
+        ('feature_selector', feature_selector),
+        # Other pipeline steps...
+    ])
+
+    # Fit and transform the data using the pipeline
+    X_transformed = pipeline.fit_transform(X)
+    ```
+    """
+
+    def __init__(self, feature_names):
+        """
+        Initialize the FeatureSelector transformer.
+
+        Parameters:
+            feature_names (list or array-like): List of column names to select as features from the input DataFrame.
+        """
+        self.feature_names = feature_names
+
+    def fit(self, X, y=None):
+        """
+        Placeholder method that returns the transformer instance itself.
+
+        Parameters:
+            X (pd.DataFrame): Input data to be transformed.
+
+        Returns:
+            self (FeatureSelector): The transformer instance.
+        """
+        return self
+
+    def transform(self, X):
+        """
+        Selects and returns the specified features (columns) from the input DataFrame.
+
+        Parameters:
+            X (pd.DataFrame): Input data to be transformed.
+
+        Returns:
+            X_selected (pd.DataFrame): DataFrame containing only the specified features (columns).
+        """
+        return X[self.feature_names]
 
 class OrderingFeatures(BaseEstimator, TransformerMixin):
     """
@@ -531,9 +597,9 @@ class OrderingFeatures(BaseEstimator, TransformerMixin):
         Returns:
             self (OrderingFeatures): The transformer instance.
         """
-        X = check_array(X, accept_sparse=True)
         if isinstance(X, pd.DataFrame):
             self.ordered_features = X.columns
+            print(self.ordered_features)
         elif isinstance(X, np.ndarray):
             self.ordered_features = np.arange(X.shape[1])
         else:
@@ -552,10 +618,14 @@ class OrderingFeatures(BaseEstimator, TransformerMixin):
         """
 
         if isinstance(X, pd.DataFrame):
-            print(X[self.ordered_features])
-            return X[self.ordered_features]
+            # print(X[self.ordered_features])
+            # print("return df")
+            DROP_COLS_AFTER = ['pclass', 'sex', 'age', 'sibsp', 'parch', 'fare', 'cabin', 'embarked','title']
+            X[self.ordered_features]
+            X.drop(DROP_COLS_AFTER, axis=1, inplace=True)
+            return X
         elif isinstance(X, np.ndarray):
-            print(X[:, self.ordered_features])
+            # print("return np")
             return X[:, self.ordered_features]
         else:
             raise ValueError("Input X must be a pandas DataFrame or a numpy array.")

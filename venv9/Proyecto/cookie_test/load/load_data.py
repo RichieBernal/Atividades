@@ -32,16 +32,16 @@ class DataRetriver:
         data = pd.read_csv(self.url) 
 
         # Create directory if it does not exist
-#        if not os.path.exists(self.DATASETS_DIR):
-#            os.makedirs(self.DATASETS_DIR)
-#            print(f"Directory '{self.DATASETS_DIR}' created successfully.")
-#        else:
-#            print(f"Directory '{self.DATASETS_DIR}' already exists.")
+        if not os.path.exists(self.DATASETS_DIR):
+            os.makedirs(self.DATASETS_DIR)
+            print(f"Directory '{self.DATASETS_DIR}' created successfully.")
+        else:
+            print(f"Directory '{self.DATASETS_DIR}' already exists.")
 
         # Save data to CSV file
-#        data.to_csv(self.DATASETS_DIR + self.RETRIEVED_DATA, index=False)
+        data.to_csv(self.DATASETS_DIR + self.RETRIEVED_DATA, index=False)
 
-#        return f'Data stored in {self.DATASETS_DIR + self.RETRIEVED_DATA}'
+        return f'Data stored in {self.DATASETS_DIR + self.RETRIEVED_DATA}'
     
 
 

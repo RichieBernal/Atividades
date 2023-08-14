@@ -4,6 +4,12 @@
 
 
 import unittest
+import pytest
+import pandas as pd
+
+from sklearn.pipeline import Pipeline
+from cookie_test.load.load_data import DataRetriever
+
 
 from cookie_test import cookie_test
 

@@ -15,7 +15,7 @@ class DataRetriver:
         """
     
 
-    RETRIEVED_DATA = 'retrieved_data.csv' # File name for the retrieved data.
+    RETRIEVED_DATA = 'venv9\Proyecto\cookie_test\data\retrieved_data.csv' # File name for the retrieved data.
 
     def __init__(self, url, data_path):
         self.url = url

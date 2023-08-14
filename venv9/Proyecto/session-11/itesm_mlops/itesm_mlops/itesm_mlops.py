@@ -43,7 +43,7 @@ PIPELINE_SAVE_FILE = f'{PIPELINE_NAME}_output.pkl'
 if __name__ == "__main__":
     
     print(os.getcwd())
-#    os.chdir('module-3\session-11\itesm_mlops\itesm_mlops\itesm_mlops')
+    os.chdir('C:/Users/rbernal/Documents/GitHub/Rich/mlops/module-2/session-3/activity/Atividades/venv9/Proyecto/session-11/itesm_mlops/itesm_mlops')
     # Retrieve data
     data_retriever = DataRetriever(URL, DATASETS_DIR)
     result = data_retriever.retrieve_data()
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     
     # Read data
     df = pd.read_csv(DATASETS_DIR + RETRIEVED_DATA)
-    
+    df.head()
     # Split data
     X_train, X_test, y_train, y_test = train_test_split(
                                                         df.drop(TARGET, axis=1),

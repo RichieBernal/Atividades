@@ -1,6 +1,7 @@
 {
     "python.analysis.extraPaths": [
         "./Sesion9/session-9/itesm_mlops/itesm_mlops",
-        "./S9/session-9/itesm_mlops/itesm_mlops"
+        "./S9/session-9/itesm_mlops/itesm_mlops",
+        "./Sesion6/itesm_mlops"
     ]
 }

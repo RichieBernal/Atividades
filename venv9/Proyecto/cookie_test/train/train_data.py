@@ -2,7 +2,6 @@
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import LogisticRegression
-from sklearn.compose import ColumnTransformer
 from preprocess.preprocess_data import (
     OneHotEncoder,
     FeatureSelector,

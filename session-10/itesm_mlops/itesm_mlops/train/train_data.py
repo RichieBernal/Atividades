@@ -13,7 +13,7 @@ from preprocess.preprocess_data import (
     OrderingFeatures
 )
 
-class TitanicDataPipeline:
+class FireDataPipeline:
     """
     A class representing the Titanic data processing and modeling pipeline.
 

@@ -476,7 +476,73 @@ class OneHotEncoder(BaseEstimator, TransformerMixin):
 
         return X
     
+class FeatureSelector(BaseEstimator, TransformerMixin):
+    """
+    Custom scikit-learn transformer to select specific features (columns) from a DataFrame.
 
+    Parameters:
+        feature_names (list or array-like): List of column names to select as features from the input DataFrame.
+
+    Methods:
+        fit(X, y=None):
+            Placeholder method that returns the transformer instance itself.
+
+        transform(X):
+            Selects and returns the specified features (columns) from the input DataFrame.
+
+    Example usage:
+    ```
+    from sklearn.pipeline import Pipeline
+
+    # Define the feature names to be selected
+    selected_features = ['feature1', 'feature2', 'feature3']
+
+    # Instantiate the custom transformer
+    feature_selector = FeatureSelector(feature_names=selected_features)
+
+    # Define the pipeline with the custom transformer
+    pipeline = Pipeline([
+        ('feature_selector', feature_selector),
+        # Other pipeline steps...
+    ])
+
+    # Fit and transform the data using the pipeline
+    X_transformed = pipeline.fit_transform(X)
+    ```
+    """
+
+    def __init__(self, feature_names):
+        """
+        Initialize the FeatureSelector transformer.
+
+        Parameters:
+            feature_names (list or array-like): List of column names to select as features from the input DataFrame.
+        """
+        self.feature_names = feature_names
+
+    def fit(self, X, y=None):
+        """
+        Placeholder method that returns the transformer instance itself.
+
+        Parameters:
+            X (pd.DataFrame): Input data to be transformed.
+
+        Returns:
+            self (FeatureSelector): The transformer instance.
+        """
+        return self
+
+    def transform(self, X):
+        """
+        Selects and returns the specified features (columns) from the input DataFrame.
+
+        Parameters:
+            X (pd.DataFrame): Input data to be transformed.
+
+        Returns:
+            X_selected (pd.DataFrame): DataFrame containing only the specified features (columns).
+        """
+        return X[self.feature_names]
 
 class OrderingFeatures(BaseEstimator, TransformerMixin):
     """

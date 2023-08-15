@@ -1,6 +1,6 @@
 """Main module."""
 from load.load_data import DataRetriever
-from train.train_data import TitanicDataPipeline
+from train_.train_data import TitanicDataPipeline
 import pandas as pd
 from sklearn.model_selection import train_test_split
 import joblib

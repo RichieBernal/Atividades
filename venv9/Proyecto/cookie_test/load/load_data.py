@@ -3,7 +3,7 @@ import numpy as np
 import re
 import os
 
-class Data_Retriever:
+class DataRetriever:
     """
     A class for retrieving data from a given A data path and processing it for further analysis.
 

@@ -1,5 +1,6 @@
+
 """Main module."""
-from load.load_data import Data_Retriever
+from load.load_data import DataRetriever
 from train.train_data import FireDataPipeline
 import pandas as pd
 from sklearn.model_selection import train_test_split
